@@ -1,9 +1,11 @@
 import React from 'react'
 import './Card.css'
-function Card() {
+function Card(props) {
   return (
     <div>
-    
+    {props.image &&(
+      <img src={props.cover} alt="" />
+    )}
     </div>
   )
 }

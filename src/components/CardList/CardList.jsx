@@ -1,6 +1,9 @@
 import React from 'react'
 import Card from '../Card/Card'
+import { useState } from 'react';
 
+function CardList() {
+const [data,setData] = useState('')
 
 // Here we define our query as a multi-line string
 // Storing it in a separate .graphql/.gql file is also possible
@@ -66,20 +69,39 @@ function handleResponse(response) {
     });
 }
 
-function handleData(data) {
-    console.log(data);
-}
 
+function handleData(payload) {
+  setData(payload)
+
+}
 function handleError(error) {
     alert('Error, check console');
     console.error(error);
 }
 
-function CardList() {
+
+console.log(data)
   return (
-    <>
-      <Card/>
-    <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx199-ehguwq1mPvtN.jpg"/>
+    <>hi
+    {/* {
+      data.data.media.map((anime,i) => {
+        console.log(data);
+        return(
+          <div>
+            <Card
+            // key={i}
+            // id={anime.id}
+            cover={anime.data.media.coverImage.medium}
+            // title={anime.title}
+            />
+          </div>
+        )
+      })
+    }
+      <Card
+      
+      /> */}
+    {/* <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx199-ehguwq1mPvtN.jpg"/> */}
     </>
   )
 }
